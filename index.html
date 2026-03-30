@@ -1,35 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Free Online Tools</title>
+<title>All Free Tools</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body{font-family:Arial;background:#111;color:white;text-align:center;padding:40px}
-.container{max-width:600px;margin:auto;background:#1e1e1e;padding:30px;border-radius:10px}
-input,button{padding:10px;margin:10px;width:90%}
-button{background:black;color:white}
+
+body{
+font-family:Arial;
+background:#111;
+color:white;
+text-align:center;
+padding:40px
+}
+
+.container{
+background:#1e1e1e;
+padding:30px;
+border-radius:10px;
+max-width:600px;
+margin:auto
+}
+
+input,button{
+padding:10px;
+margin:10px;
+width:90%
+}
+
+button{
+background:black;
+color:white;
+border:none
+}
+
+h1{
+margin-bottom:30px
+}
+
+.tool{
+margin-top:30px
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>Free Online Tools</h1>
+<h1>All Free Online Tools</h1>
 
-<p>Age Calculator</p>
+<!-- AGE CALCULATOR -->
+
+<div class="tool">
+
+<h2>Age Calculator</h2>
 
 <input type="date" id="dob">
 
-<button onclick="calc()">Calculate Age</button>
+<button onclick="age()">Calculate Age</button>
 
-<h2 id="result"></h2>
+<p id="ageResult"></p>
+
+</div>
+
+<!-- BMI CALCULATOR -->
+
+<div class="tool">
+
+<h2>BMI Calculator</h2>
+
+<input type="number" id="weight" placeholder="Weight (kg)">
+
+<input type="number" id="height" placeholder="Height (cm)">
+
+<button onclick="bmi()">Calculate BMI</button>
+
+<p id="bmiResult"></p>
+
+</div>
+
+<!-- PERCENTAGE CALCULATOR -->
+
+<div class="tool">
+
+<h2>Percentage Calculator</h2>
+
+<input type="number" id="total" placeholder="Total">
+
+<input type="number" id="value" placeholder="Value">
+
+<button onclick="percent()">Calculate Percentage</button>
+
+<p id="perResult"></p>
+
+</div>
 
 </div>
 
 <script>
 
-function calc(){
+function age(){
 
 let dob=new Date(document.getElementById("dob").value)
 
@@ -37,11 +110,36 @@ let today=new Date()
 
 let age=today.getFullYear()-dob.getFullYear()
 
-document.getElementById("result").innerHTML="Your Age: "+age
+document.getElementById("ageResult").innerHTML="Age: "+age
+
+}
+
+function bmi(){
+
+let w=document.getElementById("weight").value
+
+let h=document.getElementById("height").value/100
+
+let bmi=w/(h*h)
+
+document.getElementById("bmiResult").innerHTML="BMI: "+bmi.toFixed(2)
+
+}
+
+function percent(){
+
+let total=document.getElementById("total").value
+
+let value=document.getElementById("value").value
+
+let result=(value/total)*100
+
+document.getElementById("perResult").innerHTML=result+" %"
 
 }
 
 </script>
 
 </body>
-</html>
+
+  </html>
