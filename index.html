@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Free Online Tools</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;background:#111;color:white;text-align:center;padding:40px}
+.container{max-width:600px;margin:auto;background:#1e1e1e;padding:30px;border-radius:10px}
+input,button{padding:10px;margin:10px;width:90%}
+button{background:black;color:white}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Free Online Tools</h1>
+
+<p>Age Calculator</p>
+
+<input type="date" id="dob">
+
+<button onclick="calc()">Calculate Age</button>
+
+<h2 id="result"></h2>
+
+</div>
+
+<script>
+
+function calc(){
+
+let dob=new Date(document.getElementById("dob").value)
+
+let today=new Date()
+
+let age=today.getFullYear()-dob.getFullYear()
+
+document.getElementById("result").innerHTML="Your Age: "+age
+
+}
+
+</script>
+
+</body>
+</html>
